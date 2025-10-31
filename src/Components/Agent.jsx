@@ -5,23 +5,23 @@ function Agent() {
   const agents = [
     {
       id: 1,
-      name: "John Doe",
+      name: "Kabita Bhurtel",
       role: "Frontend Developer",
       image: "https://randomuser.me/api/portraits/men/1.jpg",
       description:
         "Passionate about creating beautiful and user-friendly interfaces.",
-      instagram: "https://instagram.com/johndoe",
-      facebook: "https://facebook.com/johndoe",
+      instagram: "https://www.instagram.com/kabeeta_bhurtel/",
+      facebook: "https://www.facebook.com/kabeetabhurtel/f",
       linkedin: "https://linkedin.com/in/johndoe",
     },
     {
       id: 2,
-      name: "Jane Smith",
+      name: "Smriti Nepali",
       role: "Backend Developer",
       image: "https://randomuser.me/api/portraits/women/2.jpg",
       description: "Focused on building secure and scalable web applications.",
-      instagram: "https://instagram.com/janesmith",
-      facebook: "https://facebook.com/janesmith",
+      instagram: "https://www.instagram.com/smriti_nepali26",
+      facebook: "https://www.facebook.com/smrti.nepali.586175",
       linkedin: "https://linkedin.com/in/janesmith",
     },
   ];
