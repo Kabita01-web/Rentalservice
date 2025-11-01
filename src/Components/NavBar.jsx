@@ -28,21 +28,23 @@ function NavBar() {
             : "bg-white/10 border-white/20"
         }`}
       >
-        {/* Logo / Brand */}
-        <div className="flex items-center gap-2">
-          <Home
-            className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 transition-colors duration-300 ${
-              isScrolled ? "text-gray-900" : "text-white"
-            }`}
-          />
-          <span
-            className={`text-lg sm:text-xl lg:text-2xl font-bold transition-colors duration-300 ${
-              isScrolled ? "text-gray-900" : "text-white"
-            }`}
-          >
-            GharBhada
-          </span>
-        </div>
+     <div className="flex items-center gap-3">
+  <img
+    src="/logo.jpg"
+    alt="GharBhada Logo"
+    className={`h-10 w-10 object-contain rounded-full shadow-sm transition-transform duration-300 ${
+      isScrolled ? "scale-100" : "scale-105"
+    }`}
+  />
+  <span
+    className={`text-xl sm:text-2xl lg:text-3xl font-bold tracking-wide transition-colors duration-300 ${
+      isScrolled ? "text-gray-900" : "text-white"
+    }`}
+  >
+    GharBhada
+  </span>
+</div>
+
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
