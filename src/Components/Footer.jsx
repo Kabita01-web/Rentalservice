@@ -8,17 +8,20 @@ function Footer() {
         {/* Stack vertically on mobile, row on medium+ */}
         <div className="flex flex-col md:flex-row gap-8 md:gap-12">
           {/* Company Info */}
-          <div className="flex-1 min-w-[200px]">
-            <div className="flex flex-col">
-              <Home className="w-16 h-16 text-white" />
-              <h1 className="text-white mt-3 text-xl sm:text-2xl font-bold">
-                GharBhada
-              </h1>
-              <p className="text-gray-300 mt-2">
-                If you have a property to rent or are looking for one, remember
-                Room Sewa.
-              </p>
-            </div>
+         <div className="flex-1 min-w-[200px]">
+  <div className="flex flex-col items-center text-center">
+    <img
+      src="/logo.jpg"
+      alt="GharBhada Logo"
+      className="w-16 h-16 object-contain rounded-full shadow-md mb-2 transition-transform duration-300 hover:scale-105"
+    />
+    <h1 className="text-white mt-2 text-xl sm:text-2xl font-bold">
+      GharBhada
+    </h1>
+    <p className="text-gray-300 mt-2 ">
+      If you have a property to rent or are looking for one, remember GharBhada.
+    </p>
+  </div>
             <div className="flex flex-row gap-4 mt-4">
               <a
                 href="https://instagram.com"
