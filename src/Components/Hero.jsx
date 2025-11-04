@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 
 function Hero() {
   return (
-    <div className="relative flex flex-col min-h-screen bg-[url('https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg')] bg-cover bg-center">
+    <div className="relative flex flex-col min-h-screen bg-[url('https://images.pexels.com/photos/34582723/pexels-photo-34582723.jpeg')] bg-cover bg-center">
       {/* Semi-transparent overlay for better text readability */}
       <div className="absolute inset-0 bg-black/40 "></div>
 
