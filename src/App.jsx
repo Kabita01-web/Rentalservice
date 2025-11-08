@@ -6,6 +6,7 @@ import Contact from './Pages/Contact'
 import Requirement from './Pages/Requirement'
 import About from './Pages/About'
 import Room from './Pages/Room'
+import Policy from './Pages/Policy'
 const App = () => {
   return (
     <div>
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/requirement' element={<Requirement/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/room' element={<Room/>} />
+        <Route path='/policy' element={<Policy/>} />
       </Routes>
       </BrowserRouter>
     </div>
