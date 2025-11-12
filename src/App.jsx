@@ -8,7 +8,7 @@ import About from './Pages/About'
 import Room from './Pages/Room'
 import Policy from './Pages/Policy'
 import Help from './Pages/Help'
-
+import Listing from './Pages/Listing'
 const App = () => {
   return (
     <div>
@@ -22,6 +22,7 @@ const App = () => {
         <Route path='/room' element={<Room/>} />
         <Route path='/policy' element={<Policy/>} />
        <Route path='/help' element={<Help/>} />
+       <Route path='/listing' element={<Listing/>} />
       </Routes>
       </BrowserRouter>
     </div>

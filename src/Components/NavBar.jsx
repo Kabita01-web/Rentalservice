@@ -51,7 +51,7 @@ function NavBar() {
           <a href="/" className={navLinkClass()}>
             Home
           </a>
-          <a href="/" className={navLinkClass()}>
+          <a href="/listing" className={navLinkClass()}>
             Listing <ChevronDown className="w-5 h-5" />
           </a>
           <a href="/contact" className={navLinkClass()}>
