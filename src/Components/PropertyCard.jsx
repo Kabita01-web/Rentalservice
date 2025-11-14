@@ -172,7 +172,7 @@ function PropertyCard() {
                     </button>
                   </div>
                   <div className="absolute top-4 left-4">
-                    <span className="bg-green-600 text-white px-3 py-1.5 rounded-full text-sm font-medium shadow-lg">
+                    <span className="bg-pink-600 text-white px-3 py-1.5 rounded-full text-sm font-medium shadow-lg">
                       For Rent
                     </span>
                   </div>
@@ -195,11 +195,11 @@ function PropertyCard() {
                 </div>
                 <div className="md:w-1/2 p-6 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-bold text-xl text-gray-900 text-left mb-3 hover:text-indigo-600 transition-colors">
+                    <h3 className="font-bold text-xl text-gray-900 text-left mb-3 hover:text-rose-600 transition-colors">
                       {property.title}
                     </h3>
                     <div className="flex items-center text-sm text-gray-500 mb-5">
-                      <MapPin className="w-4 h-4 mr-1.5 flex-shrink-0 text-indigo-500" />
+                      <MapPin className="w-4 h-4 mr-1.5 flex-shrink-0 text-rose-500" />
                       <span>{property.location}</span>
                     </div>
 
@@ -227,14 +227,14 @@ function PropertyCard() {
                     <div className="flex flex-col gap-2 items-center">
                       <div>
                         <p className="text-xs text-gray-500 mb-1">Monthly Rent</p>
-                        <h4 className="text-2xl font-bold text-indigo-600">
+                        <h4 className="text-2xl font-bold text-rose-500">
                           Rs. {property.price.toLocaleString()}
                           <span className="text-sm font-normal text-gray-500 ml-1">/ {property.period}</span>
                         </h4>
                       </div>
                       <button 
                         onClick={() => handleViewDetails(property)}
-                        className="bg-indigo-600 text-white px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors font-medium text-sm shadow-md hover:shadow-lg cursor-pointer"
+                        className="bg-rose-500 text-white px-5 py-2.5 rounded-lg hover:bg-rose-700 transition-colors font-medium text-sm shadow-md hover:shadow-lg cursor-pointer"
                       >
                         View Room Details
                       </button>
@@ -247,7 +247,7 @@ function PropertyCard() {
         </div>
 
         <div className="mt-12 flex justify-center">
-          <button className="group flex justify-center items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl font-semibold">
+          <button className="group flex justify-center items-center gap-2 px-8 py-4 bg-gradient-to-r from-rose-600 to-red-600 text-white rounded-full hover:from-rose-700 hover:to-red-700 transition-all shadow-lg hover:shadow-xl font-semibold">
             Explore All Rental Rooms
             <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>

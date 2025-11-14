@@ -110,17 +110,17 @@ const PropertyDetails = ({ property, onClose }) => {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div>
               <p className="text-sm text-gray-500 mb-1">Monthly Rent</p>
-              <h4 className="text-3xl font-bold text-indigo-600">
+              <h4 className="text-3xl font-bold text-rose-600">
                 Rs. {property.price.toLocaleString()}
                 <span className="text-base font-normal text-gray-500 ml-2">/ {property.period}</span>
               </h4>
             </div>
             <div className="flex gap-3">
-              <button className="flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors font-medium">
+              <button className="flex items-center gap-2 bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors font-medium">
                 <Phone className="w-4 h-4" />
                 Call Now
               </button>
-              <button className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+              <button className="flex items-center gap-2 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors font-medium">
                 <MessageCircle className="w-4 h-4" />
                 Message
               </button>

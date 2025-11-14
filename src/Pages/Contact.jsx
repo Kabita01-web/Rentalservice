@@ -58,12 +58,12 @@ function Contact() {
           <p className="text-lg text-gray-200 mb-4 max-w-2xl">
             We'd love to hear from you. Send us a message and we'll respond as soon as possible.
           </p>
-          <div className="flex items-center gap-2 text-white/90">
-            <a href="/" className="hover:text-white transition-colors">
+          <div className="flex items-center justify-center gap-2 text-white/90 text-lg">
+            <a href="/" className="hover:text-pink-400 transition-colors duration-300">
               Home
             </a>
-            <span>/</span>
-            <span className="font-semibold">Contact Us</span>
+            <span className="text-pink-400">/</span>
+            <span className="text-pink-400 font-medium">Contact Us</span>
           </div>
         </div>
       </div>

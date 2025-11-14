@@ -11,7 +11,7 @@ function Agent() {
       description:
         "Passionate about creating beautiful and user-friendly interfaces with modern web technologies.",
       instagram: "https://www.instagram.com/kabeeta_bhurtel/",
-      facebook: "https://www.facebook.com/kabeetabhurtel/f",
+      facebook: "https://www.facebook.com/kabeetabhurtel/",
       linkedin: "https://linkedin.com/in/johndoe",
     },
     {
