@@ -1,290 +1,156 @@
 import React from 'react';
+import { Shield, Lock, Eye, UserCheck, Database, FileText, Mail, AlertCircle } from 'lucide-react';
 import NavBar from '../Components/NavBar';
 import Footer from '../Components/Footer';
 
-function Policy() {
+const Policy = () => {
+  const sections = [
+    {
+      icon: <Database className="w-6 h-6" />,
+      title: "Information We Collect",
+      content: "We collect information you provide directly to us when creating an account, listing a property, or booking a room. This includes your name, email address, phone number, payment information, and property details. We also automatically collect certain information about your device and how you interact with our platform."
+    },
+    {
+      icon: <Eye className="w-6 h-6" />,
+      title: "How We Use Your Information",
+      content: "We use the information we collect to provide, maintain, and improve our services, process transactions, send you technical notices and support messages, respond to your comments and questions, and protect against fraudulent or illegal activity. We may also use your information to personalize your experience and send you promotional communications."
+    },
+    {
+      icon: <Lock className="w-6 h-6" />,
+      title: "Information Sharing",
+      content: "We share your information with service providers who perform services on our behalf, such as payment processing and data analysis. When you book a room, we share necessary information with the property owner. We may also share information when required by law or to protect our rights and safety."
+    },
+    {
+      icon: <Shield className="w-6 h-6" />,
+      title: "Data Security",
+      content: "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security."
+    },
+    {
+      icon: <UserCheck className="w-6 h-6" />,
+      title: "Your Rights",
+      content: "You have the right to access, update, or delete your personal information at any time through your account settings. You may also opt out of receiving promotional communications from us. For data deletion requests or privacy concerns, please contact our support team."
+    },
+    {
+      icon: <FileText className="w-6 h-6" />,
+      title: "Cookies and Tracking",
+      content: "We use cookies and similar tracking technologies to collect information about your browsing activities. This helps us improve our services, remember your preferences, and provide relevant advertisements. You can control cookies through your browser settings."
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <NavBar />
-      
-      <div className="max-w-4xl mx-auto px-6 py-12 md:px-8 lg:px-12">
-        {/* Header Section */}
-        <div className="bg-white rounded-xl mt-10 shadow-sm p-8 mb-8 border border-gray-200">
-          <h1 className="text-4xl font-bold text-gray-900 mb-3">
-            Privacy Policy
+    <div className="">
+      {/* Header */}
+      <NavBar/>
+      <div className="relative h-[60vh] bg-[url('https://images.pexels.com/photos/5668772/pexels-photo-5668772.jpeg')] bg-cover bg-center flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30"></div>
+        <div className="relative flex flex-col items-center justify-center text-center z-10 px-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            Get In Touch
           </h1>
-          <p className="text-lg text-gray-600 mb-4">
-            How We Protect Your Information
+          <p className="text-lg text-gray-200 mb-4 max-w-2xl">
+            We'd love to hear from you. Send us a message and we'll respond as soon as possible.
           </p>
-          <div className="inline-flex items-center px-4 py-2 bg-green-50 text-blue-700 rounded-lg text-sm font-medium">
-            Last Updated: October 14, 2025
+          <div className="flex items-center gap-2 text-white/90">
+            <a href="/" className="hover:text-white transition-colors">
+              Home
+            </a>
+            <span>/</span>
+            <span className="font-semibold">Privacy</span>
           </div>
         </div>
+      </div>
 
-        {/* Introduction Section */}
-        <div className="bg-white rounded-xl shadow-sm p-8 mb-8 border border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">
-            Introduction
-          </h2>
-          <p className="text-gray-700 leading-relaxed">
-            At GharBhada, your privacy is very important to us. This Privacy
-            Policy explains how we collect, use, and protect your information
-            when you use our website and services. By using this site, you agree
-            to the terms of this policy. Please read it carefully.
-          </p>
-        </div>
 
-        {/* Main Content */}
-        <div className="space-y-6">
-          {/* Section 1 */}
-          <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 hover:shadow-md transition-shadow">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-              <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">
-                1
-              </span>
-              Information We Collect
-            </h3>
-            <p className="text-gray-700 mb-4 leading-relaxed">
-              We may collect the following details when you use our website:
-            </p>
-            <ul className="space-y-3">
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>
-                  Your name, email address, and contact number when you register
-                  or post a listing.
-                </span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>
-                  Property details such as address, rent amount, and property
-                  photos.
-                </span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>
-                  Payment details such as transaction IDs, payment method (e.g.,
-                  eSewa, Khalti), and amount paid.
-                </span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>
-                  We do not store or access your full banking or card
-                  information. All payments are handled through trusted
-                  third-party gateways.
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Section 2 */}
-          <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 hover:shadow-md transition-shadow">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-              <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">
-                2
-              </span>
-              How We Use Your Information
-            </h3>
-            <p className="text-gray-700 mb-4 leading-relaxed">
-              We use your information to:
-            </p>
-            <ul className="space-y-3">
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>Create and manage your account.</span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>
-                  Show your property listings or help you find available rentals.
-                </span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>Communicate with you for updates or support.</span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>Improve our website's features and services.</span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>
-                  Process payments, confirm transactions, and send payment
-                  receipts.
-                </span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>Prevent fraud or misuse during online payments.</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Section 3 */}
-          <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 hover:shadow-md transition-shadow">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-              <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">
-                3
-              </span>
-              Information Sharing
-            </h3>
-            <p className="text-gray-700 mb-4 leading-relaxed">
-              We do not sell or rent your personal information to third parties.
-              We may share your information with:
-            </p>
-            <ul className="space-y-3">
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>
-                  <strong>Payment processors</strong> like eSewa and Khalti to
-                  complete transactions securely.
-                </span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>
-                  <strong>Legal authorities</strong> when required by law or
-                  government regulations.
-                </span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>
-                  <strong>Service providers</strong> to fix technical issues or
-                  protect website users from fraud or abuse.
-                </span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>
-                  <strong>With your consent</strong> or at your direction.
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Section 4 */}
-          <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 hover:shadow-md transition-shadow">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-              <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">
-                4
-              </span>
-              Your Control and Rights
-            </h3>
-            <p className="text-gray-700 mb-4 leading-relaxed">
-              You have the right to:
-            </p>
-            <ul className="space-y-3 mb-4">
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>Update or delete your account information.</span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>Request removal of your property listing.</span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-blue-500 mr-3 mt-1">•</span>
-                <span>Contact us anytime if you feel your data is being misused.</span>
-              </li>
-            </ul>
-            <p className="text-gray-700 leading-relaxed">
-              Just send us an email at{" "}
-              <a
-                href="mailto:support@gharbhada.com"
-                className="text-blue-600 hover:text-blue-800 underline font-medium"
-              >
-                support@gharbhada.com
-              </a>{" "}
-              and we'll assist you quickly.
-            </p>
-          </div>
-
-          {/* Section 5 */}
-          <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 hover:shadow-md transition-shadow">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-              <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">
-                5
-              </span>
-              Data Security
-            </h3>
-            <div className="space-y-4">
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Introduction */}
+        <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+          <div className="flex items-start gap-4">
+            <AlertCircle className="w-6 h-6 text-[#8B7355] flex-shrink-0 mt-1" />
+            <div>
+              <h2 className="text-xl font-semibold text-gray-900 mb-3">Introduction</h2>
               <p className="text-gray-700 leading-relaxed">
-                We take reasonable steps to protect your information from loss,
-                misuse, or unauthorized access. However, please note that no
-                online platform is completely risk-free, so always be cautious
-                while sharing personal details.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                All payment transactions are processed through secure third-party
-                gateways that use encryption and comply with Nepal's financial
-                data protection standards.
+                Welcome to our room rental platform. We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy describes how we collect, use, disclose, and safeguard your information when you visit our website and use our services. Please read this policy carefully to understand our practices regarding your personal data.
               </p>
             </div>
           </div>
+        </div>
 
-          {/* Section 6 */}
-          <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 hover:shadow-md transition-shadow">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-              <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">
-                6
-              </span>
-              External Links
-            </h3>
-            <p className="text-gray-700 leading-relaxed">
-              Our website may include links to other sites. We are not
-              responsible for the privacy practices or content of those
-              third-party websites. Please review their policies separately.
-            </p>
-          </div>
+        {/* Privacy Sections */}
+        <div className="space-y-6">
+          {sections.map((section, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-[#D9CFC7] rounded-xl flex items-center justify-center text-[#8B7355]">
+                  {section.icon}
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    {section.title}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    {section.content}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
 
-          {/* Section 7 */}
-          <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 hover:shadow-md transition-shadow">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-              <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">
-                7
-              </span>
-              Updates to This Policy
-            </h3>
-            <p className="text-gray-700 leading-relaxed">
-              We may update this Privacy Policy as our website grows. When we do,
-              we'll post the updated version here with a new "Last Updated" date.
-            </p>
-          </div>
+        {/* Third Party Services */}
+        <div className="bg-white rounded-2xl shadow-lg p-8 mt-8">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">Third-Party Services</h3>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Our platform may contain links to third-party websites and services. We are not responsible for the privacy practices of these external sites. We encourage you to read their privacy policies before providing any personal information.
+          </p>
+          <p className="text-gray-700 leading-relaxed">
+            We may use third-party service providers for payment processing, analytics, and customer support. These providers have access to your personal information only to perform specific tasks on our behalf and are obligated to protect your data.
+          </p>
+        </div>
 
-          {/* Section 8 */}
-          <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 hover:shadow-md transition-shadow">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-              <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">
-                8
-              </span>
-              Contact Us
-            </h3>
-            <p className="text-gray-700 leading-relaxed">
-              If you have any questions or concerns about this Privacy Policy,
-              please contact us at:{" "}
-              <a
-                href="mailto:support@gharbhada.com"
-                className="text-blue-600 hover:text-blue-800 underline font-medium"
-              >
-                support@gharbhada.com
-              </a>
-            </p>
+        {/* Children's Privacy */}
+        <div className="bg-white rounded-2xl shadow-lg p-8 mt-8">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">Children's Privacy</h3>
+          <p className="text-gray-700 leading-relaxed">
+            Our services are not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately so we can delete such information.
+          </p>
+        </div>
+
+        {/* Changes to Policy */}
+        <div className="bg-white rounded-2xl shadow-lg p-8 mt-8">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">Changes to This Policy</h3>
+          <p className="text-gray-700 leading-relaxed">
+            We may update this Privacy Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. We will notify you of any material changes by posting the new policy on this page and updating the "Last Updated" date. We encourage you to review this policy periodically.
+          </p>
+        </div>
+
+        {/* Contact Section */}
+        <div className="bg-gradient-to-r from-[#8B7355] to-[#A0826D] rounded-2xl shadow-lg p-8 mt-8 text-white">
+          <div className="flex items-start gap-4">
+            <Mail className="w-8 h-8 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="text-2xl font-semibold mb-3">Contact Us</h3>
+              <p className="leading-relaxed mb-4">
+                If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please don't hesitate to contact us:
+              </p>
+              <div className="space-y-2">
+                <p className="font-medium">Email: privacy@roomrental.com</p>
+                <p className="font-medium">Phone: +1 (555) 123-4567</p>
+                <p className="font-medium">Address: 123 Privacy Lane, Suite 100, City, State 12345</p>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Footer Note */}
-        <div className="mt-12 text-center text-gray-600 text-sm">
-          <p>© 2025 Ghar Bhada. All rights reserved.</p>
-        </div>
+       
       </div>
-      <Footer />
+       <Footer/>
     </div>
   );
-}
+};
 
 export default Policy;

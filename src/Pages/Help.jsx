@@ -1,329 +1,332 @@
-import React from 'react'
-import { Home, Building2, CreditCard, HelpCircle, Mail, Clock, Globe } from 'lucide-react';
+import React, { useState } from 'react';
+import { Search, MessageCircle, BookOpen, HelpCircle, Phone, Mail, Clock, ChevronDown, ChevronUp, Users, Home, CreditCard, Shield, Settings, FileText } from 'lucide-react';
 import NavBar from '../Components/NavBar';
 import Footer from '../Components/Footer';
 
-function Help() {
+const Help = () => {
+  const [expandedFaq, setExpandedFaq] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const supportCategories = [
+    {
+      icon: <Users className="w-6 h-6" />,
+      title: "Account & Profile",
+      description: "Manage your account settings, profile information, and security preferences",
+      link: "#account"
+    },
+    {
+      icon: <Home className="w-6 h-6" />,
+      title: "Property Listings",
+      description: "Learn how to create, edit, and optimize your property listings",
+      link: "#listings"
+    },
+    {
+      icon: <CreditCard className="w-6 h-6" />,
+      title: "Bookings & Payments",
+      description: "Understand the booking process, payment methods, and refund policies",
+      link: "#bookings"
+    },
+    {
+      icon: <Shield className="w-6 h-6" />,
+      title: "Safety & Security",
+      description: "Stay safe with our verified listings and secure payment system",
+      link: "#safety"
+    },
+    {
+      icon: <Settings className="w-6 h-6" />,
+      title: "Technical Support",
+      description: "Get help with technical issues, bugs, and platform functionality",
+      link: "#technical"
+    },
+    {
+      icon: <FileText className="w-6 h-6" />,
+      title: "Policies & Guidelines",
+      description: "Review our terms, conditions, and community guidelines",
+      link: "#policies"
+    }
+  ];
+
+  const faqs = [
+    {
+      category: "Account",
+      question: "How do I create an account?",
+      answer: "Click the 'Sign Up' button in the top right corner, enter your email address, create a password, and fill in your basic information. You'll receive a verification email to activate your account."
+    },
+    {
+      category: "Account",
+      question: "I forgot my password. What should I do?",
+      answer: "Click 'Forgot Password' on the login page, enter your email address, and we'll send you a password reset link. Follow the instructions in the email to create a new password."
+    },
+    {
+      category: "Bookings",
+      question: "How do I book a room?",
+      answer: "Browse available properties, select your desired dates, review the listing details and pricing, then click 'Book Now'. You'll need to provide payment information and agree to the property's terms before confirming."
+    },
+    {
+      category: "Bookings",
+      question: "What is the cancellation policy?",
+      answer: "Cancellation policies vary by property and are clearly stated on each listing. Generally, you can cancel within 24-48 hours for a full refund. Review the specific policy before booking."
+    },
+    {
+      category: "Payments",
+      question: "What payment methods do you accept?",
+      answer: "We accept all major credit cards (Visa, Mastercard, American Express), debit cards, and select digital payment methods. All transactions are processed securely through our encrypted payment system."
+    },
+    {
+      category: "Payments",
+      question: "When will I receive my refund?",
+      answer: "Refunds are processed within 5-7 business days of cancellation approval. The time it takes for the funds to appear in your account depends on your bank or card provider."
+    },
+    {
+      category: "Listings",
+      question: "How do I list my property?",
+      answer: "Click 'List Your Property' in the navigation menu, provide detailed information about your space, upload high-quality photos, set your pricing and availability, and submit for review. Our team typically approves listings within 24 hours."
+    },
+    {
+      category: "Listings",
+      question: "What makes a good listing?",
+      answer: "Include clear, high-quality photos, write detailed descriptions highlighting unique features, set competitive pricing, maintain accurate availability, and respond promptly to inquiries. Properties with complete information and good reviews get more bookings."
+    },
+    {
+      category: "Safety",
+      question: "How do you verify properties?",
+      answer: "All property owners must verify their identity and provide proof of ownership or authorization to rent. We also encourage reviews from guests to maintain transparency and accountability."
+    },
+    {
+      category: "Safety",
+      question: "Is my payment information secure?",
+      answer: "Yes, we use industry-standard encryption and secure payment processors. We never store your complete credit card information on our servers and comply with PCI DSS standards."
+    }
+  ];
+
+  const contactMethods = [
+    {
+      icon: <MessageCircle className="w-6 h-6" />,
+      title: "Live Chat",
+      description: "Chat with our support team in real-time",
+      availability: "Available 24/7",
+      action: "Start Chat",
+      color: "from-[#8B7355] to-[#A0826D]"
+    },
+    {
+      icon: <Mail className="w-6 h-6" />,
+      title: "Email Support",
+      description: "support@roomrental.com",
+      availability: "Response within 24 hours",
+      action: "Send Email",
+      color: "from-[#8B7355] to-[#A0826D]"
+    },
+    {
+      icon: <Phone className="w-6 h-6" />,
+      title: "Phone Support",
+      description: "+1 (555) 123-4567",
+      availability: "Mon-Fri, 9AM-6PM EST",
+      action: "Call Now",
+      color: "from-[#8B7355] to-[#A0826D]"
+    }
+  ];
+
+  const filteredFaqs = faqs.filter(faq =>
+    faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    faq.answer.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    faq.category.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const toggleFaq = (index) => {
+    setExpandedFaq(expandedFaq === index ? null : index);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gray-50">
         <NavBar />
-      <div className="max-w-4xl mx-auto px-6 py-12 md:px-8 lg:px-12">
-        {/* Header Section */}
-        <div className="bg-white rounded-xl mt-10  shadow-sm p-8 mb-8 border border-gray-200">
-          <h1 className="text-4xl font-bold text-gray-900 mb-3">
-            Help & Support
+      {/* Hero Section */}
+      <div className="relative h-[60vh] bg-[url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg')] bg-cover bg-center flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30"></div>
+        <div className="relative flex flex-col items-center justify-center text-center z-10 px-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            How Can We Help You?
           </h1>
-          <p className="text-lg text-gray-600 mb-4">
-            We're here to make your property search and rental experience as easy as possible
+          <p className="text-lg text-gray-200 mb-8 max-w-2xl">
+            Find answers to your questions or get in touch with our support team
           </p>
-          <div className="flex flex-wrap gap-3">
-            <div className="inline-flex items-center px-4 py-2 bg-purple-50 text-purple-700 rounded-lg text-sm font-medium">
-              Last Updated: October 14, 2025
+          
+          {/* Search Bar */}
+          <div className="w-full max-w-2xl">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input
+                type="text"
+                placeholder="Search for help..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-4 rounded-xl border-0 shadow-lg focus:ring-2 focus:ring-[#8B7355] focus:outline-none text-gray-800"
+              />
             </div>
-            
+          </div>
+
+          <div className="flex items-center gap-2 text-white/90 mt-6">
+            <a href="/" className="hover:text-white transition-colors">
+              Home
+            </a>
+            <span>/</span>
+            <span className="font-semibold">Help & Support</span>
           </div>
         </div>
+      </div>
 
-        {/* Quick Contact Card */}
-        <div className="bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl shadow-lg p-8 mb-8 text-white">
-          <h2 className="text-2xl font-bold mb-4">Need Quick Help?</h2>
-          <div className="space-y-3">
-            <div className="flex items-center">
-              <Mail className="w-5 h-5 mr-3" />
-              <a href="mailto:support@gharbhada.com" className="hover:underline font-medium">
-                support@gharbhada.com
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        {/* Support Categories */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">Browse by Category</h2>
+          <p className="text-gray-600 text-center mb-8">Select a topic to find helpful resources</p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {supportCategories.map((category, index) => (
+              <a
+                key={index}
+                href={category.link}
+                className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-[#D9CFC7] rounded-xl flex items-center justify-center text-[#8B7355]">
+                    {category.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {category.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {category.description}
+                    </p>
+                  </div>
+                </div>
               </a>
-            </div>
-            <div className="flex items-center">
-              <Clock className="w-5 h-5 mr-3" />
-              <span>Sunday – Friday, 9:00 AM to 6:00 PM</span>
-            </div>
-            <div className="flex items-center">
-              <Globe className="w-5 h-5 mr-3" />
-              <span>www.gharbhada.com</span>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Main Content Sections */}
-        <div className="space-y-6">
-          {/* For Renters Section */}
-          <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 hover:shadow-md transition-shadow">
-            <div className="flex items-center mb-4">
-              <div className="bg-blue-100 p-3 rounded-lg mr-4">
-                <Home className="w-8 h-8 text-blue-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900">
-                For Renters
-              </h3>
+        {/* FAQ Section */}
+        <div className="mb-12">
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <HelpCircle className="w-8 h-8 text-[#8B7355]" />
+              <h2 className="text-3xl font-bold text-gray-900">Frequently Asked Questions</h2>
             </div>
-            <p className="text-gray-600 mb-4 italic">
-              People looking for rooms or apartments
-            </p>
             
             <div className="space-y-4">
-              <p className="text-gray-700 font-medium">If you are searching for a place to stay:</p>
-              
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <span className="bg-blue-100 text-blue-700 font-bold rounded-full w-7 h-7 flex items-center justify-center text-sm mr-3 mt-0.5 flex-shrink-0">
-                    1
-                  </span>
-                  <p className="text-gray-700">
-                    Use the search bar to find rooms or apartments by location, budget, or type.
-                  </p>
+              {filteredFaqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className="border border-gray-200 rounded-xl overflow-hidden hover:border-[#8B7355] transition-colors"
+                >
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                  >
+                    <div className="flex-1">
+                      <span className="inline-block px-3 py-1 bg-[#D9CFC7] text-[#8B7355] text-xs font-semibold rounded-full mb-2">
+                        {faq.category}
+                      </span>
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        {faq.question}
+                      </h3>
+                    </div>
+                    {expandedFaq === index ? (
+                      <ChevronUp className="w-5 h-5 text-[#8B7355] flex-shrink-0 ml-4" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0 ml-4" />
+                    )}
+                  </button>
+                  
+                  {expandedFaq === index && (
+                    <div className="px-6 pb-4 pt-2 bg-gray-50">
+                      <p className="text-gray-700 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  )}
                 </div>
-                
-                <div className="flex items-start">
-                  <span className="bg-blue-100 text-blue-700 font-bold rounded-full w-7 h-7 flex items-center justify-center text-sm mr-3 mt-0.5 flex-shrink-0">
-                    2
-                  </span>
-                  <p className="text-gray-700">
-                    Click on a listing to view photos, rent amount, and contact details.
-                  </p>
-                </div>
-                
-                <div className="flex items-start">
-                  <span className="bg-blue-100 text-blue-700 font-bold rounded-full w-7 h-7 flex items-center justify-center text-sm mr-3 mt-0.5 flex-shrink-0">
-                    3
-                  </span>
-                  <p className="text-gray-700">
-                    Contact the property owner directly through the provided phone or email.
-                  </p>
-                </div>
-                
-                <div className="flex items-start">
-                  <span className="bg-blue-100 text-blue-700 font-bold rounded-full w-7 h-7 flex items-center justify-center text-sm mr-3 mt-0.5 flex-shrink-0">
-                    4
-                  </span>
-                  <p className="text-gray-700">
-                    Always visit the property and confirm details before making any payments.
-                  </p>
-                </div>
-              </div>
+              ))}
+            </div>
 
-              <div className="mt-6 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                <p className="text-gray-800">
-                  <strong>Need help finding the right place?</strong> 👉 Email us at{" "}
-                  <a href="mailto:support@gharbhada.com" className="text-blue-600 hover:text-blue-800 underline font-medium">
-                    support@gharbhada.com
-                  </a>, and we'll guide you.
-                </p>
+            {filteredFaqs.length === 0 && (
+              <div className="text-center py-12">
+                <BookOpen className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                <p className="text-gray-500">No FAQs found matching your search.</p>
               </div>
-            </div>
-          </div>
-
-          {/* For Property Owners Section */}
-          <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 hover:shadow-md transition-shadow">
-            <div className="flex items-center mb-4">
-              <div className="bg-blue-100 p-3 rounded-lg mr-4">
-                <Building2 className="w-8 h-8 text-blue-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900">
-                For Property Owners
-              </h3>
-            </div>
-            <p className="text-gray-600 mb-4 italic">
-              People listing rooms or apartments
-            </p>
-            
-            <div className="space-y-4">
-              <p className="text-gray-700 font-medium">If you want to list your property for rent:</p>
-              
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <span className="bg-blue-100 text-blue-700 font-bold rounded-full w-7 h-7 flex items-center justify-center text-sm mr-3 mt-0.5 flex-shrink-0">
-                    1
-                  </span>
-                  <p className="text-gray-700">
-                    Create a free account on GharBhada.
-                  </p>
-                </div>
-                
-                <div className="flex items-start">
-                  <span className="bg-blue-100 text-blue-700 font-bold rounded-full w-7 h-7 flex items-center justify-center text-sm mr-3 mt-0.5 flex-shrink-0">
-                    2
-                  </span>
-                  <p className="text-gray-700">
-                    Click "Add Property" and fill in all the details — price, location, photos, and contact info.
-                  </p>
-                </div>
-                
-                <div className="flex items-start">
-                  <span className="bg-blue-100 text-blue-700 font-bold rounded-full w-7 h-7 flex items-center justify-center text-sm mr-3 mt-0.5 flex-shrink-0">
-                    3
-                  </span>
-                  <p className="text-gray-700">
-                    Make sure your information is accurate and clear.
-                  </p>
-                </div>
-                
-                <div className="flex items-start">
-                  <span className="bg-blue-100 text-blue-700 font-bold rounded-full w-7 h-7 flex items-center justify-center text-sm mr-3 mt-0.5 flex-shrink-0">
-                    4
-                  </span>
-                  <p className="text-gray-700">
-                    Your listing will appear after quick verification.
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-6 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                <p className="text-gray-800">
-                  <strong>Having trouble uploading your property?</strong> 👉 Contact us at{" "}
-                  <a href="mailto:support@gharbhada.com" className="text-blue-600 hover:text-blue-800 underline font-medium">
-                    support@gharbhada.com
-                  </a>{" "}
-                  and we'll help you fix it.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Payments Section */}
-          <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 hover:shadow-md transition-shadow">
-            <div className="flex items-center mb-4">
-              <div className="bg-purple-100 p-3 rounded-lg mr-4">
-                <CreditCard className="w-8 h-8 text-purple-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900">
-                Payments and Technical Support
-              </h3>
-            </div>
-            
-            <p className="text-gray-700 mb-4">
-              If you're using GharBhada's online payment system:
-            </p>
-            
-            <ul className="space-y-3">
-              <li className="flex items-start text-gray-700">
-                <span className="text-purple-500 mr-3 mt-1">•</span>
-                <span>
-                  Make sure you're using secure and verified payment options (eSewa, Khalti, or bank transfer).
-                </span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-purple-500 mr-3 mt-1">•</span>
-                <span>
-                  Keep a screenshot or transaction ID for your records.
-                </span>
-              </li>
-              <li className="flex items-start text-gray-700">
-                <span className="text-purple-500 mr-3 mt-1">•</span>
-                <span>
-                  If your payment fails or gets deducted twice, send the transaction ID and date to our support team.
-                </span>
-              </li>
-            </ul>
-
-            <div className="mt-6 bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
-              <p className="text-gray-800">
-                We'll review your issue and respond within <strong>2–3 working days</strong>.
-              </p>
-            </div>
-          </div>
-
-          {/* Common Issues Section */}
-          <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 hover:shadow-md transition-shadow">
-            <div className="flex items-center mb-6">
-              <div className="bg-orange-100 p-3 rounded-lg mr-4">
-                <HelpCircle className="w-8 h-8 text-orange-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900">
-                Common Issues
-              </h3>
-            </div>
-            
-            <div className="space-y-5">
-              <div className="border-l-4 border-orange-400 pl-4 py-2">
-                <p className="font-bold text-gray-900 mb-2">
-                  Q1. I can't log in to my account.
-                </p>
-                <p className="text-gray-700">
-                  → Try resetting your password or checking your email login.
-                </p>
-              </div>
-              
-              <div className="border-l-4 border-orange-400 pl-4 py-2">
-                <p className="font-bold text-gray-900 mb-2">
-                  Q2. My listing isn't showing.
-                </p>
-                <p className="text-gray-700">
-                  → It may be under review — this usually takes up to 24 hours.
-                </p>
-              </div>
-              
-              <div className="border-l-4 border-orange-400 pl-4 py-2">
-                <p className="font-bold text-gray-900 mb-2">
-                  Q3. How can I delete my account or listing?
-                </p>
-                <p className="text-gray-700">
-                  → Go to your profile → "My Listings" → "Delete Listing" or contact support.
-                </p>
-              </div>
-              
-              <div className="border-l-4 border-orange-400 pl-4 py-2">
-                <p className="font-bold text-gray-900 mb-2">
-                  Q4. I found fake or misleading information.
-                </p>
-                <p className="text-gray-700">
-                  → Please report it immediately to{" "}
-                  <a href="mailto:support@gharbhada.com" className="text-orange-600 hover:text-orange-800 underline font-medium">
-                    support@gharbhada.com
-                  </a>{" "}
-                  so our team can review and remove it.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* We're Here to Help Section */}
-          <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl shadow-lg p-8 text-white">
-            <h3 className="text-3xl font-bold mb-4 flex items-center">
-              🤝 We're Here to Help
-            </h3>
-            <p className="text-lg mb-6 text-purple-100">
-              Our friendly support team is always ready to assist you.
-            </p>
-            
-            <div className="space-y-4 bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-              <div className="flex items-center">
-                <Mail className="w-6 h-6 mr-3 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold">Email</p>
-                  <a href="mailto:support@gharbhada.com" className="hover:underline">
-                    support@gharbhada.com
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-center">
-                <Clock className="w-6 h-6 mr-3 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold">Support Hours</p>
-                  <p>Sunday – Friday, 9:00 AM to 6:00 PM</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center">
-                <Globe className="w-6 h-6 mr-3 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold">Website</p>
-                  <p>www.gharbhada.com</p>
-                </div>
-              </div>
-            </div>
+            )}
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="mt-12 text-center text-gray-600 text-sm">
-          <p>© 2025 Ghar Bhada. All rights reserved.</p>
+        {/* Contact Methods */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">Still Need Help?</h2>
+          <p className="text-gray-600 text-center mb-8">Our support team is here to assist you</p>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {contactMethods.map((method, index) => (
+              <div
+                key={index}
+                className={`bg-gradient-to-r ${method.color} rounded-2xl shadow-lg p-6 text-white`}
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4">
+                    {method.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{method.title}</h3>
+                  <p className="text-white/90 mb-2">{method.description}</p>
+                  <div className="flex items-center gap-2 text-sm mb-4">
+                    <Clock className="w-4 h-4" />
+                    <span>{method.availability}</span>
+                  </div>
+                  <button className="bg-white text-[#8B7355] px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    {method.action}
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Quick Tips */}
+        <div className="bg-gradient-to-r from-[#8B7355] to-[#A0826D] rounded-2xl shadow-lg p-8 text-white">
+          <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+            <BookOpen className="w-6 h-6" />
+            Quick Tips for Getting Help
+          </h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-sm font-bold">1</span>
+              </div>
+              <p className="text-sm leading-relaxed">Search our FAQ section first - most common questions are answered there</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-sm font-bold">2</span>
+              </div>
+              <p className="text-sm leading-relaxed">Include booking or listing numbers when contacting support for faster assistance</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-sm font-bold">3</span>
+              </div>
+              <p className="text-sm leading-relaxed">Use live chat for urgent issues - email for detailed inquiries</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-sm font-bold">4</span>
+              </div>
+              <p className="text-sm leading-relaxed">Check your email for updates on support tickets and responses</p>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Help
+export default Help;

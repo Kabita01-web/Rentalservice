@@ -15,7 +15,6 @@ const Home = () => {
       <Hero />
       <PropertyCard />
       <Choose />
-      <Agent />
       <Testimonials />
       <BackToTop />
       <Footer />
